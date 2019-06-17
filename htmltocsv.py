@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from os import walk
 from bs4 import BeautifulSoup
 import traceback
@@ -28,6 +30,7 @@ category_dirs = parse_directory(root_dir)[1]
 print('- - - - - - DIRECTORIES - - - - - - ')
 print_array(category_dirs)
 
+row_results = [0] * 25
 
 def log_error(filename, directory, error):
     log_file = open('./error_logs.txt', "a+")
@@ -56,56 +59,76 @@ def get_latin_name(description):
 def add_value_in_row(key, value, row):
     if key == 'Acidité du sol':
         row[16] = value
-    elif key == 'Catégorie':
-        row[0] = value
+        row_results[16] += 1
     elif key == 'Couleur des fleurs':
         row[6] = value
+        row_results[6] += 1
     elif key == 'Espèces proches':
         row[14] = value
+        row_results[14] += 1
     elif key == 'Exposition':
         row[3] = value
+        row_results[3] += 1
     elif key == 'Famille':
         row[4] = value
+        row_results[4] += 1
     elif key == 'Hauteur':
         row[8] = value
+        row_results[8] += 1
     elif key == 'Humidité du sol':
         row[17] = value
+        row_results[17] += 1
     elif key == 'Maladies et ravageurs':
         row[2] = value
+        row_results[2] += 1
     elif key == 'Méthode de multiplication':
         row[10] = value
-    elif key == 'Nom commun':
-        row[1] = value
+        row_results[10] += 1
     elif key == 'Nom latin':
         row[9] = value
+        row_results[9] += 1
     elif key == 'Origine':
         row[11] = value
+        row_results[11] += 1
     elif key == 'Période de floraison':
         row[5] = value
+        row_results[5] += 1
     elif key == 'Plantation, rempotage':
         row[13] = value
+        row_results[13] += 1
     elif key == 'Rusticité':
         row[15] = value
+        row_results[15] += 1
     elif key == 'Synonyme':
         row[19] = value
+        row_results[19] += 1
     elif key == 'Synonymes':
         row[19] = value
+        row_results[19] += 1
     elif key == 'Taille':
         row[20] = value
+        row_results[20] += 1
     elif key == 'Toxicité':
         row[21] = value
+        row_results[21] += 1
     elif key == 'Type de feuillage':
         row[7] = value
+        row_results[7] += 1
     elif key == 'Type de plante':
         row[12] = value
+        row_results[12] += 1
     elif key == 'Type de sol':
         row[18] = value
+        row_results[18] += 1
     elif key == 'Type de végétation':
         row[23] = value
+        row_results[23] += 1
     elif key == 'Utilisation':
         row[22] = value
+        row_results[22] += 1
     else:
         print('# # # # # # # # # # # # # # # # KEY UNKNOWN : ' + key)
+        row_results[24] += 1
     return row
 
 
@@ -154,7 +177,14 @@ with open('./data.csv', 'w', encoding="utf8") as csvfile:
             description = soup.find("div", {"id": "description3"})
 
             entries = description.find_all('div')
-            new_row = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+            new_row = [''] * 24
+            new_row[0] = directory
+            row_results[0] += 1
+
+            if plant_name:
+                new_row[1] = plant_name
+                row_results[1] += 1
+
             for div in entries:
                 entry = unicodedata.normalize("NFKD", div.getText()).split(':')
                 key = entry[0].strip()
@@ -162,3 +192,5 @@ with open('./data.csv', 'w', encoding="utf8") as csvfile:
                 add_value_in_row(key, value, new_row)
 
             csvwriter.writerow(new_row)
+
+print(str(row_results))
