@@ -133,7 +133,7 @@ def add_value_in_row(key, value, row):
 
 
 with open('./data.csv', 'w', encoding="utf8") as csvfile:
-    csvwriter = csv.writer(csvfile, delimiter=';', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+    csvwriter = csv.writer(csvfile, delimiter='|', quoting=csv.QUOTE_MINIMAL)
     csvwriter.writerow(['category',
                         'common_name',
                         'diseases_pests',
@@ -187,8 +187,8 @@ with open('./data.csv', 'w', encoding="utf8") as csvfile:
 
             for div in entries:
                 entry = unicodedata.normalize("NFKD", div.getText()).split(':')
-                key = entry[0].strip()
-                value = entry[1].strip()
+                key = entry[0].strip().replace('|', '')
+                value = entry[1].strip().replace('|', '')
                 add_value_in_row(key, value, new_row)
 
             csvwriter.writerow(new_row)
