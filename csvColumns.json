@@ -1,0 +1,54 @@
+{
+  Acidité du sol,16
+  Catégorie,0
+  Couleur des fleurs,6
+  Espèces proches,14
+  Exposition,3
+  Famille,4
+  Hauteur,8
+  Humidité du sol,17
+  Maladies et ravageurs,2
+  Méthode de multiplication,10
+  Nom commun,1
+  Nom latin,9
+  Origine,11
+  Période de floraison,5
+  Plantation, rempotage,13
+  Rusticité,15
+  Synonyme,19
+  Synonymes,19
+  Taille,20
+  Toxicité,21
+  Type de feuillage,7
+  Type de plante,12
+  Type de sol,18
+  Type de végétation,23
+  Utilisation22
+}
+
+{
+  'category',0
+  'common_name',1
+  'diseases_pests',2
+  'exposure',3
+  'family',4
+  'flowering',5
+  'flowers_color',6
+  'foliage_type',7
+  'height',8
+  'latin_name',9
+  'multiplication_methods',10
+  'origin',11
+  'plant_type',12
+  'plantation_repotting',13
+  'related_species',14
+  'rusticity',15
+  'soil_acidity',16
+  'soil_humidity',17
+  'soil_type',18
+  'synonyms',19
+  'trimming',20
+  'toxicity',21
+  'usage',22
+  'vegetation_type'23
+}
