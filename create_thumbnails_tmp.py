@@ -7,7 +7,7 @@ from os.path import isfile, join
 
 api_description_endpoint = "http://localhost:4000/plant-description/"
 api_thumbnail_endpoint = "http://localhost:4000/plant-thumbnail/"
-download_folder_path = "/home/pmicas/workspace/repositories/google-images-download/downloads"
+download_folder_path = "/home/.../workspace/repositories/google-images-download/downloads"
 
 gim = google_images_download.googleimagesdownload()   #class instantiation
 
