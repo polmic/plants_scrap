@@ -6,4 +6,4 @@ Some old and not so beautiful python code to:
 - Convert to csv
 - Insert through an api
 
-- google-images-download.py is from https://github.com/hardikvasa/google-images-download
+- google_images_download.py is from https://github.com/hardikvasa/google-images-download
