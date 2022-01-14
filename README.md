@@ -6,4 +6,4 @@ Some old and not so beautiful python code to:
 - Convert to csv
 - Insert through an api
 
-- Gather some free of rights thumbnails from google images
+- Gather some copyright-free thumbnails from google images (not my code)
